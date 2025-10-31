@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from .database import engine, Base
-from .api import auth, products, upload, search, chat, cart
+from .api import auth, products, upload, search, chat, cart, orders, merchants
 from .config import settings
 import os
 
@@ -37,6 +37,8 @@ app.include_router(upload.router, prefix="/api")
 app.include_router(search.router, prefix="/api")
 app.include_router(chat.router, prefix="/api")
 app.include_router(cart.router, prefix="/api")
+app.include_router(orders.router, prefix="/api")
+app.include_router(merchants.router, prefix="/api")
 
 @app.get("/")
 def root():
