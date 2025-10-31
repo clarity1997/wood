@@ -1,16 +1,16 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional, Union
 from ..models.user import UserRole
 
 class UserBase(BaseModel):
     username: str
-    email: EmailStr
+    email: str  # 改为普通字符串，不再要求邮箱格式
     role: UserRole
 
 class UserCreate(BaseModel):
     username: str
-    email: EmailStr
+    email: str  # 改为普通字符串，不再要求邮箱格式
     password: str
     role: Union[UserRole, str]  # Accept both enum and string
 
