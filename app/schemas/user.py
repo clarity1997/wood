@@ -7,6 +7,7 @@ class UserBase(BaseModel):
     username: str
     email: str  # 改为普通字符串，不再要求邮箱格式
     role: UserRole
+    balance: float
 
 class UserCreate(BaseModel):
     username: str

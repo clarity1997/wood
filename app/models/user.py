@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Enum
+from sqlalchemy import Column, Integer, String, DateTime, Enum, Float
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import enum
@@ -16,6 +16,7 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column(String, nullable=False)
     role = Column(Enum(UserRole), nullable=False, default=UserRole.USER)
+    balance = Column(Float, nullable=False, default=10000000.0)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     merchant = relationship("Merchant", back_populates="user", uselist=False)
