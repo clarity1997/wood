@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     DEEPSEEK_API_KEY: str = ""
     DEEPSEEK_API_URL: str = "https://api.deepseek.com/v1/chat/completions"
     UPLOAD_DIR: str = "uploads"
+    BASE_URL: str = "http://localhost:8000"  # 服务器基础URL
 
     class Config:
         env_file = ".env"
